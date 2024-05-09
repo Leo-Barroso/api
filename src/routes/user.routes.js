@@ -3,12 +3,17 @@ const usersRoutes = Router()
 const UsersController = require("../controllers/UsersController")
 const usersController = new UsersController()
 
-function myMidddleware(require, response, next) {
-    console.log("Você passou!")
-    next()
-}
+// function myMidddleware(require, response, next) {
+//     console.log("Você passou!")
+//     next()
+// }
 
-usersRoutes.post("/", myMidddleware, usersController.create)
+
+usersRoutes.post("/", usersController.create)
+usersRoutes.put("/:id", usersController.update)
+
+
+
 module.exports = usersRoutes
 
 
